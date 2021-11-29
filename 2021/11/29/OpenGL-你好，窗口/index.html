@@ -1,0 +1,475 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="" href="https://sunkey-lau.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="" href="https://sunkey-lau.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="" href="https://sunkey-lau.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://sunkey-lau.github.io/2021/11/29/OpenGL-%E4%BD%A0%E5%A5%BD%EF%BC%8C%E7%AA%97%E5%8F%A3/">
+
+
+
+  <title>
+OpenGL-你好，窗口 |
+茶山没有绿茶 = </title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">OpenGL-你好，窗口
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-11-29 21:01:27">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-11-29T21:01:27+08:00">2021-11-29</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">茶山没有绿茶</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+          <img src="/assets/code-wallpaper-6.png">
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://sunkey-lau.github.io/2021/11/29/OpenGL-%E4%BD%A0%E5%A5%BD%EF%BC%8C%E7%AA%97%E5%8F%A3/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Sunkey-Lau">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="一-需要包含的头文件"><a class="markdownIt-Anchor" href="#一-需要包含的头文件">#</a> 一、需要包含的头文件</h2>
+<pre><code>#include &lt;glad/glad.h&gt;
+#include &lt;GLFW/glfw3.h&gt;           //第一行与第二行顺序不能交换
+#include &lt;iostream&gt;
+
+
+const unsigned int SCR_WIDTH = 800;  //  设置窗口大小的全局常量（见三）
+const unsigned int SCR_HEIGHT = 600;
+</code></pre>
+<h2 id="二-创建main函数实例化glfw窗口"><a class="markdownIt-Anchor" href="#二-创建main函数实例化glfw窗口">#</a> 二、创建 main 函数实例化 GLFW 窗口</h2>
+<pre><code>int main()
+&#123;
+    glfwInit();   //调用glfwInit函数初始化glfw
+
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);  //设置主要和次要版本
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); //设置为使用核心模式
+
+    //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);  //Mac OS X系统需要这行代码进行转换，Windows无需此行；
+
+    return 0;
+&#125;
+</code></pre>
+<h2 id="三-创建一个窗口对象写在main函数中"><a class="markdownIt-Anchor" href="#三-创建一个窗口对象写在main函数中">#</a> 三、创建一个窗口对象（写在 main 函数中）</h2>
+<pre><code>GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, &quot;LearnOpenGL&quot;, NULL, NULL);  //这里的  SCR_WIDTH, SCR_HEIGHT 为窗口的大小，需要定义全局常量（见一）；
+  if (window == NULL)
+  &#123;
+    std::cout &lt;&lt; &quot;Failed to create GLFW window&quot; &lt;&lt; std::endl;  
+    glfwTerminate();    //结束线程
+    return -1;
+  &#125;
+</code></pre>
+<h2 id="四-初始化glad写在main函数中"><a class="markdownIt-Anchor" href="#四-初始化glad写在main函数中">#</a> 四、初始化 GLAD（写在 main 函数中）</h2>
+<pre><code>GLAD是用来管理OpenGL的函数指针的，所以在调用任何OpenGL的函数之前我们需要初始化GLAD。
+
+if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+&#123;
+  std::cout &lt;&lt; &quot;Failed to initialize GLAD&quot; &lt;&lt; std::endl;
+  return -1;
+&#125;
+</code></pre>
+<h2 id="五-视口"><a class="markdownIt-Anchor" href="#五-视口">#</a> 五、视口</h2>
+<pre><code>在我们开始渲染之前还有一件重要的事情要做，我们必须告诉OpenGL渲染窗口的尺寸大小，即视口(Viewport)，这样OpenGL才只能知道怎样根据窗口大小显示数据和坐标。
+</code></pre>
+<h3 id="51-定义一个回调函数写在mian函数之外"><a class="markdownIt-Anchor" href="#51-定义一个回调函数写在mian函数之外">#</a> 5.1 定义一个回调函数（写在 mian 函数之外）</h3>
+<p>）<br>
+void framebuffer_size_callback (GLFWwindow* window, int width, int height)    // 每当窗口改变大小（手动拉改变窗口大小），GLFW 会调用这个函数并填充相应的参数供你处理。<br>
+{<br>
+glViewport (0, 0, width, height);  // 确保视口与新窗口尺寸匹配；请注意，宽度和高度将明显大于视网膜显示器上指定的宽度和高度。<br>
+}</p>
+<h3 id="52-注册这个函数写在main函数中"><a class="markdownIt-Anchor" href="#52-注册这个函数写在main函数中">#</a> 5.2 注册这个函数（写在 main 函数中）</h3>
+<pre><code>告诉GLFW我们希望每当窗口调整大小的时候调用这个函数：
+  
+glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);   //注册窗口监听函数：注册这个函数，告诉GLFW我们希望每当窗口调整大小的时候调用framebuffer_size_callback这个函数；
+</code></pre>
+<h2 id="六-渲染循环-输入-渲染"><a class="markdownIt-Anchor" href="#六-渲染循环-输入-渲染">#</a> 六、渲染循环 &amp; 输入 &amp; 渲染</h2>
+<pre><code>我们可不希望只绘制一个图像之后我们的应用程序就立即退出并关闭窗口。我们希望程序在我们主动关闭它之前不断绘制图像并能够接受用户输入。
+</code></pre>
+<h3 id="61-渲染循环-输入-渲染"><a class="markdownIt-Anchor" href="#61-渲染循环-输入-渲染">#</a> 6.1 渲染循环 &amp; 输入 &amp; 渲染</h3>
+<pre><code>while(!glfwWindowShouldClose(window))       //渲染循环（写在main函数之中）
+&#123;
+  processInput(window);  //输入；在渲染循环的每一个迭代中调用processInput函数，判断是否按下ESC键；
+
+  glClearColor(0.2f, 0.3f, 0.3f, 1.0f);  //渲染，调用glClearColor函数来设置清空屏幕后所填充的颜色；
+  glClear(GL_COLOR_BUFFER_BIT);  //渲染，调用glClear函数来清空屏幕的颜色缓冲，否则仍能看见上一次迭代的渲染结果；
+
+  glfwSwapBuffers(window);
+  glfwPollEvents();    
+&#125;
+</code></pre>
+<h3 id="62-输入函数processinput"><a class="markdownIt-Anchor" href="#62-输入函数processinput">#</a> 6.2  输入函数 processInput</h3>
+<pre><code>void processInput(GLFWwindow *window)      //processInput函数（写在main函数之外）
+&#123;
+  if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+      glfwSetWindowShouldClose(window, true);
+&#125;
+</code></pre>
+<h2 id="七-清理退出写在main函数最后"><a class="markdownIt-Anchor" href="#七-清理退出写在main函数最后">#</a> 七、清理退出（写在 main 函数最后</h2>
+<pre><code>glfwTerminate();  //当渲染循环结束后我们使用glfwTerminate函数正确释放/删除之前的分配的所有资源。
+return 0;</code></pre>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2021-11-29 23:45:45" itemprop="dateModified" datetime="2021-11-29T23:45:45+08:00">2021-11-29</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Sunkey-Lau WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Sunkey-Lau Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Sunkey-Lau PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Sunkey-Lau <i class="ic i-at"><em>@</em></i>
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://sunkey-lau.github.io/2021/11/29/OpenGL-%E4%BD%A0%E5%A5%BD%EF%BC%8C%E7%AA%97%E5%8F%A3/" title="OpenGL-你好，窗口">https://sunkey-lau.github.io/2021/11/29/OpenGL-你好，窗口/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/11/25/%E8%8C%B6%E5%B1%B1%E7%9A%84%E6%97%A5%E5%B8%B8/" itemprop="url" rel="prev" data-background-image="&#x2F;assets&#x2F;img-fe9862a7db44579fa801d2d25ad06844.jpg" title="茶山的日常">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>茶山的日常</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2021/11/29/OpenGL-%E4%BD%A0%E5%A5%BD%EF%BC%8C%E4%B8%89%E8%A7%92%E5%BD%A2/" itemprop="url" rel="next" data-background-image="&#x2F;assets&#x2F;code-wallpaper-15.jpg" title="OpenGL-你好，三角形">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>OpenGL-你好，三角形</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E9%9C%80%E8%A6%81%E5%8C%85%E5%90%AB%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text"> 一、需要包含的头文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%88%9B%E5%BB%BAmain%E5%87%BD%E6%95%B0%E5%AE%9E%E4%BE%8B%E5%8C%96glfw%E7%AA%97%E5%8F%A3"><span class="toc-number">2.</span> <span class="toc-text"> 二、创建 main 函数实例化 GLFW 窗口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AA%97%E5%8F%A3%E5%AF%B9%E8%B1%A1%E5%86%99%E5%9C%A8main%E5%87%BD%E6%95%B0%E4%B8%AD"><span class="toc-number">3.</span> <span class="toc-text"> 三、创建一个窗口对象（写在 main 函数中）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E5%88%9D%E5%A7%8B%E5%8C%96glad%E5%86%99%E5%9C%A8main%E5%87%BD%E6%95%B0%E4%B8%AD"><span class="toc-number">4.</span> <span class="toc-text"> 四、初始化 GLAD（写在 main 函数中）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E8%A7%86%E5%8F%A3"><span class="toc-number">5.</span> <span class="toc-text"> 五、视口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#51-%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E5%86%99%E5%9C%A8mian%E5%87%BD%E6%95%B0%E4%B9%8B%E5%A4%96"><span class="toc-number">5.1.</span> <span class="toc-text"> 5.1 定义一个回调函数（写在 mian 函数之外）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#52-%E6%B3%A8%E5%86%8C%E8%BF%99%E4%B8%AA%E5%87%BD%E6%95%B0%E5%86%99%E5%9C%A8main%E5%87%BD%E6%95%B0%E4%B8%AD"><span class="toc-number">5.2.</span> <span class="toc-text"> 5.2 注册这个函数（写在 main 函数中）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD-%E6%B8%B2%E6%9F%93%E5%BE%AA%E7%8E%AF-%E8%BE%93%E5%85%A5-%E6%B8%B2%E6%9F%93"><span class="toc-number">6.</span> <span class="toc-text"> 六、渲染循环 &amp; 输入 &amp; 渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#61-%E6%B8%B2%E6%9F%93%E5%BE%AA%E7%8E%AF-%E8%BE%93%E5%85%A5-%E6%B8%B2%E6%9F%93"><span class="toc-number">6.1.</span> <span class="toc-text"> 6.1 渲染循环 &amp; 输入 &amp; 渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#62-%E8%BE%93%E5%85%A5%E5%87%BD%E6%95%B0processinput"><span class="toc-number">6.2.</span> <span class="toc-text"> 6.2  输入函数 processInput</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83-%E6%B8%85%E7%90%86%E9%80%80%E5%87%BA%E5%86%99%E5%9C%A8main%E5%87%BD%E6%95%B0%E6%9C%80%E5%90%8E"><span class="toc-number">7.</span> <span class="toc-text"> 七、清理退出（写在 main 函数最后</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Sunkey-Lau"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Sunkey-Lau</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">3</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/11/25/%E8%8C%B6%E5%B1%B1%E7%9A%84%E6%97%A5%E5%B8%B8/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/11/29/OpenGL-%E4%BD%A0%E5%A5%BD%EF%BC%8C%E4%B8%89%E8%A7%92%E5%BD%A2/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/%E8%8C%B6%E5%B1%B1%E7%9A%84%E6%97%A5%E5%B8%B8/" title="茶山的日常">茶山的日常</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/29/OpenGL-%E4%BD%A0%E5%A5%BD%EF%BC%8C%E7%AA%97%E5%8F%A3/" title="OpenGL-你好，窗口">OpenGL-你好，窗口</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/29/OpenGL-%E4%BD%A0%E5%A5%BD%EF%BC%8C%E4%B8%89%E8%A7%92%E5%BD%A2/" title="OpenGL-你好，三角形">OpenGL-你好，三角形</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sunkey-Lau @ 茶山没有绿茶</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/11/29/OpenGL-你好，窗口/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
